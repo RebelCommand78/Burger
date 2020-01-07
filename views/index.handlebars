@@ -1,25 +1,23 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
-               <br>
-                  <br>
+            <br>
+            <br>
             <h1 class="titleText">Eat Da Burger</h1>
             <br>
         </div>
     </div>
-  <div class="row">
+    <div class="row">
         <div class="col-12">
-            <center>   <img src = "/assets/images/patty.png" ></center>
-
-
-       <br>
-       <br>
+            <center> <img src="/assets/images/patty.png"></center>
+            <br>
+            <br>
         </div>
-    </div> 
+    </div>
 
 
 
-        <div class="row">
+    <div class="row">
         <div class="col-12 addBurger">
             <h3 class="miniHeading">add burgers</h3>
             <div class="moveMe">
@@ -27,7 +25,7 @@
                     <div class="form-group">
                         <textarea type="text" name="burger_name"></textarea><br>
                         <button class="btn btn-warning" type="submit" style="background-color:beige;">add da burger!
-                            </button>
+                        </button>
                     </div>
             </div>
             </form>
@@ -35,7 +33,7 @@
     </div>
     <div class="row">
         <div class="col-6 burgers">
-            <h3 class="miniHeading">stars of the show! </h3>
+            <h3 class="miniHeading">Me hungry! </h3>
             <br>
             <ul>
                 {{#each burgers}}
@@ -54,24 +52,24 @@
             </ul>
         </div>
         <div class="col-6 devoured">
-            <h3 class="miniHeading">burgers devoured</h3>
+            <h3 class="miniHeading">burgers Fested upon</h3>
             <br>
             <ul>
                 {{#each burgers}}
                 {{#if this.devoured}}
                 <div class="devourBurger">
-                <p>
-                    {{this.burger_name}}</p>
-                <form action="/deleteOne/{{this.id}}" method="POST">
-                    <button type="submit" class="btn"
-                        style="background-color: #5DBCD2 ;">delete da burger! </button>
-                </form>
-                {{/if}}
-                {{/each}}
+                    <p>
+                        {{this.burger_name}}</p>
+                    <form action="/deleteOne/{{this.id}}" method="POST">
+                        <button type="submit" class="btn" style="background-color: #5DBCD2 ;">delete da burger!
+                        </button>
+                    </form>
+                    {{/if}}
+                    {{/each}}
             </ul>
-            </div>
         </div>
     </div>
-    <hr>
+</div>
+<hr>
 
 </div>

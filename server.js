@@ -1,33 +1,34 @@
-//require express
-var express = require("express");   
-//require express-handlebars
-var exphbs = require("express-handlebars");    
-//require body-parser                                
-var bodyParser = require("body-parser");                            
-//require burgers_controllers
-var routes = require("./controllers/burgers_controller.js");      
-//express call using app
-var app = express();                       
-//local host port 8080                        
-var PORT = process.env.PORT || 8080;                              
+var express = require("express");
 
-//public folder
-app.use(express.static("public"));                                
+var exphbs = require("express-handlebars");
 
-//parses JSON
-app.use(bodyParser.json());                                         
-app.use(bodyParser.urlencoded({ extended: true }));                 
+var bodyParser = require("body-parser");
 
-//handlebars run using main for content
-app.engine("handlebars", exphbs({                                 
-    defaultLayout: "main"                                        
+var routes = require("./controllers/burgers_controller.js");
+
+var app = express();
+
+var PORT = process.env.PORT || 8080;
+
+
+app.use(express.static("public"));
+
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: true
 }));
 
-app.set("view engine", "handlebars");                               
 
-//calls api routes
-app.use(routes);                                                 
+app.engine("handlebars", exphbs({
+    defaultLayout: "main"
+}));
 
-app.listen(PORT, function(){                             
-console.log("Listening on Port: " + PORT);
+app.set("view engine", "handlebars");
+
+
+app.use(routes);
+
+app.listen(PORT, function () {
+    console.log("Listening on Port: " + PORT);
 });
